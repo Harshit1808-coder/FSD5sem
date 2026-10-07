@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Entry Form</title>
+
+    <link rel="stylesheet" href="experiment2.css">
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>Student Entry Form</legend>
+
+        <form action="#" method="post">
+
+            <table>
+
+                <tr>
+                    <td><label for="studentId">Student ID</label></td>
+                    <td>
+                        <input type="text" id="studentId" name="studentId"
+                               placeholder="Enter Student ID">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="studentName">Student Name</label></td>
+                    <td>
+                        <input type="text" id="studentName" name="studentName"
+                               value="Harshit Pratap Singh">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="fatherName">Father's Name</label></td>
+                    <td>
+                        <input type="text" id="fatherName" name="fatherName"
+                               placeholder="Enter Father's Name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="motherName">Mother's Name</label></td>
+                    <td>
+                        <input type="text" id="motherName" name="motherName"
+                               placeholder="Enter Mother's Name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="dob">Date of Birth</label></td>
+                    <td>
+                        <input type="date" id="dob" name="dob">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <label>
+                            <input type="radio" name="gender" value="Male">
+                            Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Female">
+                            Female
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Other">
+                            Other
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="mobile">Mobile No.</label></td>
+                    <td>
+                        <input type="text" id="mobile" name="mobile">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="email">Email ID</label></td>
+                    <td>
+                        <input type="email" id="email" name="email">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td>
+                        <input type="password" id="password" name="password">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="address">Address</label></td>
+                    <td>
+                        <textarea id="address" name="address"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="department">Department</label></td>
+                    <td>
+                        <select id="department" name="department">
+                            <option value="CSE">CSE</option>
+                            <option value="IT">IT</option>
+                            <option value="ECE">ECE</option>
+                            <option value="ME">ME</option>
+                            <option value="CE">CE</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="course">Course</label></td>
+                    <td>
+                        <select id="course" name="course">
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="BCA">BCA</option>
+                            <option value="MCA">MCA</option>
+                            <option value="M.Tech">M.Tech</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="semester">Semester</label></td>
+                    <td>
+                        <select id="semester" name="semester">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Hobbies</td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobbies" value="Reading">
+                            Reading
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="hobbies" value="Sports">
+                            Sports
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="hobbies" value="Music">
+                            Music
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="photo">Upload Photo</label></td>
+                    <td>
+                        <input type="file" id="photo" name="photo">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="btn-container">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+    </fieldset>
+
+</body>
+</html>

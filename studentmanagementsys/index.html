@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Student Management System</h1>
+
+    <!-- Form Section -->
+    <form class="form-grid">
+      <div class="form-group">
+        <label for="studentName">Student Name</label>
+        <input type="text" id="studentName" />
+      </div>
+
+      <div class="form-group">
+        <label for="rollNo">Roll No.</label>
+        <input type="text" id="rollNo" />
+      </div>
+
+      <div class="form-group">
+        <label for="course">Course</label>
+        <div class="select-wrapper">
+          <select id="course">
+            <option value="" disabled selected></option>
+            <option value="B.TECH">B.TECH</option>
+            <option value="BCA">BCA</option>
+            <option value="MCA">MCA</option>
+            <option value="M.TECH">M.TECH</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="marks">Marks</label>
+        <input type="number" id="marks" min="0" max="100" />
+      </div>
+
+      <button type="button" class="btn-add">Add Student</button>
+    </form>
+
+    <!-- Search Bar -->
+    <div class="search-box">
+      <input type="text" placeholder="Search by Name or Roll No." />
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-title">Total Students</span>
+        <span class="stat-value">[ 0 ]</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-title">Avg. Marks</span>
+        <span class="stat-value">[ N/A ]</span>
+      </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>NAME</th>
+            <th>COURSE</th>
+            <th>MARKS</th>
+            <th>GRADE</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="action-cell">
+              <button type="button" class="btn-action">Edit</button>
+              <button type="button" class="btn-action">Del.</button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="action-cell">
+              <button type="button" class="btn-action">Edit</button>
+              <button type="button" class="btn-action">Del.</button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="action-cell">
+              <button type="button" class="btn-action">Edit</button>
+              <button type="button" class="btn-action">Del.</button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="action-cell">
+              <button type="button" class="btn-action">Edit</button>
+              <button type="button" class="btn-action">Del.</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
