@@ -1,59 +1,71 @@
+```jsx
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-import React, { useState } from 'react';
-
-const Footer = () => {
-  const [active, setActive] = useState('Home');
-
-  const links = ['Home', 'Product', 'About', 'Cart'];
+const Header = () => {
+  const navigate = useNavigate();
 
   return (
-    <nav style={{
+    <div style={{
       display: 'flex',
-      gap: '25px',
-      backgroundColor: 'black',
-      color: 'white',
-      fontSize: '25px',
-      justifyContent: 'space-evenly',
+      justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '20px',
-      flexWrap: 'wrap'
+      backgroundColor: '#061B33',
+      color: '#FFFFFF',
+      padding: '10px 25px'
     }}>
-      <div style={{ fontWeight: 'bold' }}>
+
+      <h2 style={{ color: '#94e7f5' }}>
         My App
-      </div>
+      </h2>
 
       <div style={{
         display: 'flex',
-        gap: '25px',
-        flexWrap: 'wrap'
+        gap: '20px'
       }}>
-        {links.map((link) => (
-          <div
-            key={link}
-            onClick={() => setActive(link)}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = 'orange';
-              e.currentTarget.style.cursor = 'pointer';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color =
-                active === link ? 'orange' : 'white';
-            }}
-            style={{
-              color: active === link ? 'orange' : 'white',
-              transition: 'color 0.3s'
-            }}
-          >
-            {link}
-          </div>
-        ))}
+        <Link to="/" style={{
+          color: '#FFFFFF',
+          textDecoration: 'none'
+        }}>Home</Link>
+
+        <Link to="/about" style={{
+          color: '#A58BFA',
+          textDecoration: 'none'
+        }}>About</Link>
+
+        <Link to="/products" style={{
+          color: '#FB9A1E',
+          textDecoration: 'none'
+        }}>Products</Link>
+
+        <Link to="/cart" style={{
+          color: '#20B685',
+          textDecoration: 'none'
+        }}>Cart</Link>
+
+        <Link to="/contact" style={{
+          color: '#FF5740',
+          textDecoration: 'none'
+        }}>Contact</Link>
       </div>
 
-      <div style={{ fontSize: '16px' }}>
-        Selected: {active}
-      </div>
-    </nav>
+      <button
+        onClick={() => navigate('/login')}
+        style={{
+          backgroundColor: '#E6FB3F',
+          color: '#061B33',
+          border: 'none',
+          padding: '10px 15px',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}
+      >
+        Login
+      </button>
+
+    </div>
   );
 };
 
-export default Footer;
+export default Header;
+```
