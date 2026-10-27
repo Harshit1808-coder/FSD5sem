@@ -1,0 +1,295 @@
+/* ---------- Background (vivid, so the glass blur is visible) ---------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(120deg, #1a0b2e, #4a1259, #8a1c5c, #c2410c, #1a0b2e);
+  background-size: 400% 400%;
+  animation: bgShift 20s ease infinite;
+}
+
+/* colorful orbs behind the glass */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(251, 146, 60, 0.60), transparent 32%),
+    radial-gradient(circle at 82% 28%, rgba(236, 72, 153, 0.55), transparent 32%),
+    radial-gradient(circle at 70% 85%, rgba(250, 204, 21, 0.40), transparent 34%),
+    radial-gradient(circle at 25% 80%, rgba(168, 85, 247, 0.55), transparent 34%);
+  animation: float 16s ease-in-out infinite alternate;
+}
+
+/* faint dotted grid */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 80%);
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-4%, 5%) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body, body::before { animation: none; }
+}
+
+/* "Loading Questions..." state */
+#root > h2 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 40vh;
+}
+
+/* ---------- Glass card ---------- */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 420px;
+  margin: 50px auto;
+  padding: 28px;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* soft gloss highlight across the top of the card */
+.container::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -20%;
+  width: 140%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.14),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.container > * {
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-top: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+h2 {
+  font-size: 20px;
+  color: white;
+  line-height: 1.35;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: normal;
+  color: #5eead4;
+  margin: 0 0 8px;
+}
+
+/* ---------- Timer ---------- */
+.timer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.timer-row h3 {
+  margin: 0;
+}
+
+.timer {
+  font-size: 13px;
+  font-weight: bold;
+  color: #5eead4;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.timer.low {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.timer-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.timer-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2dd4bf, #60a5fa);
+  border-radius: 999px;
+  transition: width 1s linear;
+}
+
+.timer-fill.low {
+  background: linear-gradient(90deg, #f87171, #ef4444);
+}
+
+.time-up {
+  text-align: center;
+  color: #fde68a;
+  font-weight: bold;
+  margin: 10px 0 0;
+}
+
+/* ---------- Glass options ---------- */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  color: white;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.option:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.option input {
+  accent-color: #2dd4bf;
+  margin: 0;
+}
+
+.option:has(input:checked) {
+  background: rgba(45, 212, 191, 0.22);
+  border-color: rgba(94, 234, 212, 0.8);
+  box-shadow: 0 0 18px rgba(45, 212, 191, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* shown after Submit */
+.option.correct {
+  background: rgba(34, 197, 94, 0.26);
+  border-color: rgba(74, 222, 128, 0.85);
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.option.wrong {
+  background: rgba(239, 68, 68, 0.26);
+  border-color: rgba(248, 113, 113, 0.85);
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.option:has(input:disabled) {
+  cursor: default;
+}
+
+.option:has(input:disabled):hover {
+  transform: none;
+}
+
+/* ---------- Glass button ---------- */
+button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 212, 191, 0.45),
+    rgba(96, 165, 250, 0.35)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 14px;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.12s, background 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 212, 191, 0.6),
+    rgba(96, 165, 250, 0.5)
+  );
+  box-shadow:
+    0 8px 26px rgba(45, 212, 191, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: auto;
+    margin: 20px;
+    padding: 22px;
+  }
+}
